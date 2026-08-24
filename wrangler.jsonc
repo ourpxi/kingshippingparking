@@ -12,6 +12,6 @@
   },
   "assets": {
     "directory": "./public",
-    "html_handling": "single_page_application"
+    "html_handling": "force-trailing-slash"
   }
 }
