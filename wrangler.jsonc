@@ -1,17 +1,5 @@
 {
   "name": "kingshippingparking",
-  "main": "src/index.js",
   "compatibility_date": "2024-06-01",
-  "pages_build_output_dir": "./public",
-  "build": {
-    "command": "echo 'Pages build completed successfully.'",
-    "cwd": "."
-  },
-  "vars": {
-    "ENVIRONMENT": "production"
-  },
-  "assets": {
-    "directory": "./public",
-    "html_handling": "force-trailing-slash"
-  }
+  "pages_build_output_dir": "./public"
 }
