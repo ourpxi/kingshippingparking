@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Under Construction - King Shipping CR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #041628;
+            color: #dae5ec;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background-color: #163964;
+            border-radius: 12px;
+            border: 1px solid #5c8d60;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 2.5rem;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2a8e1c, #3e822f, #2a8e1c);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: #3e822f;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .lang-btn {
+            padding: 0.375rem 0.75rem;
+            background: transparent;
+            border: 1px solid #5c8d60;
+            color: #dae5ec;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            border-color: #3e822f;
+            background-color: rgba(58, 134, 47, 0.1);
+        }
+
+        .lang-btn.active {
+            background-color: #2a8e1c;
+            border-color: #2a8e1c;
+            color: #dae5ec;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            fill: #dae5ec;
+        }
+
+        .icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #6a798f;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background-color: #2a8e1c;
+            color: #dae5ec;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #3e822f;
+            box-shadow: 0 0 20px rgba(58, 134, 47, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #6a798f;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #2a8e1c;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+            .title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+    </div>
+
+    <div class="container">
+        <div class="logo">
+            <img src="https://public.ourpxi.dev/kingshippinglogo.webp" alt="KingShippingCR Logo">
+        </div>
+        <h1 class="title" id="title">Website Under Construction</h1>
+        <p class="subtitle" id="subtitle">We're currently building something great. Follow our official updates in the meantime.</p>
+
+        <button onclick="window.location.href='https://www.facebook.com/profile.php?id=61593083747352'" class="cta-button" id="cta-text">Visit Our Facebook Page</button>
+
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span id="business-name">King Shipping CR</span>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            'en': {
+                title: 'Website Under Construction',
+                subtitle: 'We\'re currently building something great. Follow our official updates in the meantime.',
+                cta: 'Visit Our Facebook Page',
+                business: 'King Shipping CR'
+            },
+            'es': {
+                title: 'Sitio Web en Construcción',
+                subtitle: 'Estamos construyendo algo increíble. Sigue nuestros Actualizaciones oficiales mientras tanto.',
+                cta: 'Visita Nuestra Página de Facebook',
+                business: 'King Shipping CR'
+            }
+        };
+
+        function setLanguage(lang) {
+            if (lang !== 'en' && lang !== 'es') return;
+            
+            localStorage.setItem('preferredLanguage', lang);
+            
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === (lang === 'en' ? 'EN' : 'ES'));
+            });
+            
+            document.getElementById('title').textContent = translations[lang].title;
+            document.getElementById('subtitle').textContent = translations[lang].subtitle;
+            document.getElementById('cta-text').textContent = translations[lang].cta;
+            document.getElementById('business-name').textContent = translations[lang].business;
+        }
+
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0];
+            
+            if (langCode === 'es') {
+                return 'es';
+            }
+            return 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                const detectedLang = detectBrowserLanguage();
+                setLanguage(detectedLang);
+            }
+        });
+    </script>
+</body>
+</html>
